@@ -1,9 +1,14 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #f1f1f1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,50 +16,58 @@ body {
 }
 
 .container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
     text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
-
-.header h1 {
-    color: #f39c12;
     margin-bottom: 20px;
-    font-size: 2em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 24px;
 }
 
-input[type="text"], select, button {
-    padding: 10px;
-    margin: 10px 0;
-    width: 80%;
-    max-width: 300px;
-    background: #333;
-    color: #e0e0e0;
-    border: 2px solid #f39c12;
-    border-radius: 5px;
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #f1f1f1;
 }
 
 button {
-    background-color: #f39c12;
+    width: 100%;
+    padding: 10px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #e67e22;
+    background-color: #f02a37;
 }
 
-.progress-bar-container {
-    width: 100%;
-    background-color: #e0e0e0;
+#progress {
     margin-top: 20px;
-}
-
-.progress-bar {
-    width: 0;
-    height: 20px;
-    background-color: #3b5998;
+    text-align: center;
+    font-size: 16px;
 }

@@ -2,36 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Downloader</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <title>YouTVD - YouTube Video Downloader</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Futuristic YouTube Downloader</h1>
-        </div>
-        <form id="download-form">
-            <input type="text" id="url" name="url" placeholder="Enter Video URL" required>
-            <select id="downloadType" name="downloadType">
-                <option value="video">Video</option>
-                <option value="audio">Audio</option>
-            </select>
-            <select id="resolution" name="resolution">
-                <option value="144">144p</option>
-                <option value="240">240p</option>
-                <option value="360">360p</option>
-                <option value="480">480p</option>
-                <option value="720">720p</option>
-                <option value="1080">1080p</option>
-            </select>
-            <button type="button" onclick="startDownload()">Download</button>
+        <h1>YouTVD - YouTube Video Downloader</h1>
+        <form id="download-form" action="/download" method="post">
+            <div class="form-group">
+                <label for="url">YouTube URL:</label>
+                <input type="text" id="url" name="url" placeholder="Enter YouTube video or playlist URL" required>
+            </div>
+            <div class="form-group">
+                <label for="download-type">Download Type:</label>
+                <select id="download-type" name="downloadType"> <!-- Changed to match backend ('downloadType') -->
+                    <option value="video">Video</option>
+                    <option value="audio">Audio Only</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="resolution">Resolution:</label>
+                <select id="resolution" name="resolution">
+                    <option value="max">Maximum Resolution</option>
+                    <option value="1080">1080p</option>
+                    <option value="720">720p</option>
+                    <option value="480">480p</option>
+                    <option value="360">360p</option>
+                    <option value="240">240p</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="is-playlist">Is this a Playlist?</label>
+                <input type="checkbox" id="is-playlist" name="is_playlist" value="true"> <!-- Added value attribute -->
+            </div>
+            <button type="submit">Download</button>
         </form>
-        <div class="progress-bar-container">
-            <div id="progress-bar" class="progress-bar"></div>
+
+        <div id="progress">
+            <p>Download Progress: <span id="progress-text">0%</span></p>
         </div>
     </div>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

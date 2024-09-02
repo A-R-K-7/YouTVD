@@ -15,3 +15,10 @@ function startDownload() {
         console.log(data.status);
     });
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const socket = io.connect('http://' + document.domain + ':' + location.port + '/download');
+
+    socket.on('download_progress', function (data) {
+        document.getElementById('progress-text').innerText = data.progress + '%';
+    });
+});
