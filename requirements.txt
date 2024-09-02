@@ -1,0 +1,4 @@
+Flask
+yt-dlp
+ffmpeg-python
+Flask-SocketIO

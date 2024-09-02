@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Futuristic YouTube Downloader</h1>
+        </div>
+        <form id="download-form">
+            <input type="text" id="url" name="url" placeholder="Enter Video URL" required>
+            <select id="downloadType" name="downloadType">
+                <option value="video">Video</option>
+                <option value="audio">Audio</option>
+            </select>
+            <select id="resolution" name="resolution">
+                <option value="144">144p</option>
+                <option value="240">240p</option>
+                <option value="360">360p</option>
+                <option value="480">480p</option>
+                <option value="720">720p</option>
+                <option value="1080">1080p</option>
+            </select>
+            <button type="button" onclick="startDownload()">Download</button>
+        </form>
+        <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+    </div>
+</body>
+</html>
