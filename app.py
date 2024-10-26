@@ -14,6 +14,7 @@ DOWNLOAD_DIR = 'downloads'
 if not os.path.exists(DOWNLOAD_DIR):
     os.makedirs(DOWNLOAD_DIR)
 
+
 def download_video(url, download_type, resolution, is_playlist):
     # Determine the format string based on download type and resolution
     format_string = 'bestaudio/best' if download_type == 'audio' else f'bestvideo[height<={resolution}]+bestaudio/best'
@@ -91,4 +92,4 @@ def serve_file(filename):
 
 if __name__ == '__main__':
     # Use eventlet with SocketIO
-    socketio.run(app, debug=True, host='127.0.0.1', port=5000)
+    socketio.run(app, debug=True, host='192.168.0.104', port=5000)
